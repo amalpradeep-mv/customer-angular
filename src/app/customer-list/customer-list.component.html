@@ -1,0 +1,10 @@
+<p>customer-list works!</p>
+
+<div *ngFor="let customer of customers; let i=index">
+
+{{i+1}}) Name is {{customer.name | uppercase}}. Balance is {{customer.balance | currency:'INR'}}
+
+
+</div>
+<br>
+

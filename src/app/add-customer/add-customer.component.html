@@ -1,0 +1,21 @@
+<p>Add Customer</p>
+
+<form #myform=ngForm (ngSubmit)="addCustomer(myform)">
+
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" ngModel>
+    </div>
+
+    <div>
+        <label>Balance</label>
+        <input type="number" name="balance" ngModel>
+    </div>
+
+    <input typer="submit" value="Submit">
+</form>
+<br>
+
+<div *ngIf="customer!=undefined">
+    {{customer.name}}, {{customer.balance}}
+</div>
