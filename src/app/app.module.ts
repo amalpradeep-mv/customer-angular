@@ -7,6 +7,8 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { LengthPipe } from './pipes/length';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { ReversePipe } from './pipes/reverse';
+import { CustomerService } from './service/customerservice';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
     CustomerDetailsComponent,
     CustomerListComponent,
     LengthPipe,
-    AddCustomerComponent
+    AddCustomerComponent,
+    ReversePipe
     
   ],
   imports: [
@@ -22,7 +25,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

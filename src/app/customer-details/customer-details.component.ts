@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../model/customer';
+import { CustomerService } from '../service/customerservice';
 
 @Component({
   selector: 'customer-details',
@@ -8,9 +9,19 @@ import { Customer } from '../model/customer';
 })
 export class CustomerDetailsComponent {
 
-  constructor() { }
+  customerService:CustomerService;
 
-  customer:Customer=new Customer("john",5000);
+  constructor(customerService:CustomerService) {
+    this.customerService=customerService;
+   }
+
+  customer:Customer;
+
+   findCustomer(form:any){
+     let data=form.value;
+     let id=data.customerid;
+     this.customer=this.customerService.findCustomerById(id);
+   }
 
   link="https://www.google.com";
 
