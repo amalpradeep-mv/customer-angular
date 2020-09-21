@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
@@ -9,6 +9,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ReversePipe } from './pipes/reverse';
 import { CustomerService } from './service/customerservice';
+import { AddcustomerCodedrivenComponent } from './addcustomer-codedriven/addcustomer-codedriven.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { CustomerService } from './service/customerservice';
     CustomerListComponent,
     LengthPipe,
     AddCustomerComponent,
-    ReversePipe
+    ReversePipe,
+    AddcustomerCodedrivenComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
