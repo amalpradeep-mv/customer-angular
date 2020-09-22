@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customerservice';
 
@@ -21,7 +22,10 @@ export class AddCustomerComponent {
     let name=data.name;
     let balance=data.balance;
    this.customer=new Customer(-1,name,balance);
-   this.customerService.addCustomer(this.customer);
+   let observable:Observable<Customer>=this.customerService.addCustomer(this.customer);
+   observable.subscribe(
+     customerArg=>{this.customer=customerArg},
+   );
   }
 
 }

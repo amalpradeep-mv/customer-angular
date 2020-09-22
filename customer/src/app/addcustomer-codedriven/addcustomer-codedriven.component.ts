@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customerservice';
 
@@ -35,6 +36,11 @@ export class AddcustomerCodedrivenComponent implements OnInit {
     let username:string=this.usernameCtrl.value;
     let balance:number=this.balanceCtrl.value;
     this.customer=new Customer(-1,username,balance);
-    this.customerService.addCustomer(this.customer);
+    let observable:Observable<Customer>=this.customerService.addCustomer(this.customer);
+    observable.subscribe(
+      customerArg=>{
+        this.customer=customerArg;
+      }
+    )
   }
 }

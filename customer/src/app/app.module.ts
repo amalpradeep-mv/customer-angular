@@ -10,6 +10,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ReversePipe } from './pipes/reverse';
 import { CustomerService } from './service/customerservice';
 import { AddcustomerCodedrivenComponent } from './addcustomer-codedriven/addcustomer-codedriven.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { AddcustomerCodedrivenComponent } from './addcustomer-codedriven/addcust
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

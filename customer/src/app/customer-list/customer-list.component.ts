@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { observable, Observable } from 'rxjs';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customerservice';
 
@@ -9,13 +10,15 @@ import { CustomerService } from '../service/customerservice';
 })
 export class CustomerListComponent {
 
-  customerService:CustomerService;
-
   customers:Customer[];
 
-  constructor(customerService:CustomerService) {
-    this.customerService=customerService;
-    this.customers=customerService.allCustomers();
+  constructor(private customerService:CustomerService) {
+   let observable:Observable<Customer[]>=customerService.getAll();
+   observable.subscribe(
+     customerArg=>{
+       this.customers=customerArg;
+     }
+   )
    }
 
   
